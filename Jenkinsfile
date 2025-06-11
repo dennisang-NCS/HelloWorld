@@ -10,14 +10,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // Compile the Java program
-                sh 'javac helloworld.java'
+                // Compile the Java program and package it
+                sh 'mvn package'
             }
         }
         stage('Run') {
             steps {
                 // Run the Java program
-                sh 'java HelloWorld'
+                sh 'java -cp target/classes com.example.App'
             }
         }
     }
