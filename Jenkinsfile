@@ -11,13 +11,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the Java program and package it
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
         stage('Run') {
             steps {
                 // Run the Java program
-                sh 'java -cp target/classes com.example.App'
+                bat 'java -cp target/classes com.example.App'
             }
         }
     }
