@@ -11,13 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the Java program and package it
-                bat 'mvn package'
-            }
-        }
-        stage('Run') {
-            steps {
-                // Run the Java program
-                bat 'java -cp target/classes com.example.App'
+                bat 'mvn clean package'
             }
         }
     }
