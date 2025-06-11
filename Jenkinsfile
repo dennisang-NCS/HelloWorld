@@ -1,19 +1,23 @@
 pipeline {
     agent any
+
     stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                git 'https://github.com/dennisang-NCS/HelloWorld.git'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
+                // Compile the Java program
+                sh 'javac helloworld.java'
             }
         }
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                // Run the Java program
+                sh 'java HelloWorld'
             }
         }
     }
